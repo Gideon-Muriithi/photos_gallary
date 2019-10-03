@@ -26,7 +26,7 @@ class categories(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(default='default.jpg' upload_to = 'pictures/')
+    image = models.ImageField(default='default.jpg', upload_to = 'pictures/')
     image_name = models.CharField(max_length=30,default="Title")
     image_description = models.TextField()
     image_location = models.ForeignKey(Location, on_delete=models.CASCADE)
