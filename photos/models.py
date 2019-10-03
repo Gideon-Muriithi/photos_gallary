@@ -40,3 +40,28 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
+    @classmethod
+    def get_images(self):
+        images = cls.objects.all()
+        return images 
+
+    @classmethod
+    def search_by_category(cls, search_term):
+        images = cls.objects.filter(categories__name__contains = search_term)
+        if len(images) < 1:
+            case_images = cls.objects.filter(categories__name__contains = search_term.capitalize())
+            return case_images
+        else:
+            return images
+    
+    @classmethod
+    def fetch_image_by_id(cls,id):
+        image = cls.objects.get(id = id)
+        return image
+
+    @classmethod
+    def filter_by_location(cls,search_term):
+        location = Location.objects.get(name = search_term)
+        images = cls.objects.filter(location = location)
+        return images
