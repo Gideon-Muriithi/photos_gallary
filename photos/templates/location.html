@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<div class="scrollmenu">
+    {%for location in locations %}
+    <a href="{% url 'location' location.id %}">{{ location }}</a>
+    {% endfor %}
+</div>
+
+<div class="jumbotron text-center">
+    <h1>Gallery</h1>
+    <p>{{ location.name }}</p>
+</div>
+<div class="col-md-12" style="padding-left:30px;">
+    <h1 class="location-heading" style="border-bottom: 1.5px solid grey; float:left; padding-bottom: 5px;">
+        {{ location.name }}</h1>
+</div>
+{% for image in images %}
+
+<div class="col-md-4">
+    <img src="{{image.image_url.url}}" alt="" class="img-fluid" data-toggle="modal" data-target="#{{image.id}}">
+    <p>{{ image.description|truncatewords:6 }}</p>
+    <p>
+        {% for category in image.categories.all %}
+        <span class="badge badge-primary" style="font-size:1em;">{{category}}</span>
+        {% endfor %}
+    </p>
+</div>
+
+
+{% endblock %}

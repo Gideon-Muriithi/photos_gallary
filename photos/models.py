@@ -42,7 +42,7 @@ class Image(models.Model):
         self.delete()
 
     @classmethod
-    def get_images(self):
+    def get_all_images(cls):
         images = cls.objects.all()
         return images 
 
