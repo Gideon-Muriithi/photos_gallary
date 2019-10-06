@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Location, Image
+from . models import Location, Image, categories
 
 
 def get_images(request):
@@ -20,3 +20,7 @@ def get_location (request, location):
     }
     return render(request, 'location.html',context)
 
+def seach(request):
+    if category in request.GET and request.GET['category']:
+        search_term = request.GET.get('category')
+        searched_images = Image.search_by_category((search_term))
