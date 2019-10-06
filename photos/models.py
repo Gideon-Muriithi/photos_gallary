@@ -48,9 +48,9 @@ class Image(models.Model):
 
     @classmethod
     def search_by_category(cls, search_term):
-        images = cls.objects.filter(categories__name__contains = search_term)
+        images = cls.objects.filter(image_categories__name__contains = search_term)
         if len(images) < 1:
-            case_images = cls.objects.filter(categories__name__contains = search_term.capitalize())
+            case_images = cls.objects.filter(image_categories__name__contains = search_term.capitalize())
             return case_images
         else:
             return images

@@ -25,6 +25,10 @@ def seach_results(request):
         search_term = request.GET.get('category')
         searched_images = Image.search_by_category((search_term))
         message = f"{search_term}"
-        return render(request, 'search.html',{"message":message,"images":searched_images,"category":search_term})
+        context = {"message":message,"images":searched_images,
+            "category":search_term
+        }
+        return render(request, 'search.html', context)
     else:
+        message = "You haven't searched for any category!"
         return render(request, 'search.html',{"message":message})
