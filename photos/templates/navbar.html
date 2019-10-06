@@ -1,17 +1,17 @@
 
-<nav class="navbar navbar-inverse navbar-dark" style="background-color: rgb(129, 116, 116)">
+<nav class="navbar navbar-inverse navbar-dark" style="background-color: rgb(32, 87, 109)">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" style="color: rgb(47, 47, 47)" href="{% url 'images' %}">Photos Gallery</a>
+        <a class="navbar-brand" style="color: whitesmoke" href="{% url 'images' %}">Photos Gallery</a>
       </div>
       <!-- Adding a search form -->
   
       <div class="col-sm-4 col-md-4 navbar-right">
         <form action="{% url 'search_results' %}" class="navbar-form" role="search">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Photos Category..." name="category">
+            <input type="text"  class="form-control fa fa-search" placeholder="Search Photos Category..." name="category">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="fas fa-search"></i>Search</button>
+              <button class="btn btn-default" style="color: whitesmoke" type="submit"><i class="fa fa-search"></i></button>
             </div>
           </div>
         </form>
