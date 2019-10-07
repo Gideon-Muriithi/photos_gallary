@@ -4,6 +4,19 @@
       <div class="navbar-header">
         <a class="navbar-brand" style="color: whitesmoke" href="{% url 'images' %}">Photos Gallery</a>
       </div>
+
+      <div class="dropdown show">
+        <a class="btn  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+        aria-expanded="false" style="color: whitesmoke">
+          View Photos Based On Location 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          {%for location in locations %}
+            <a class="ml-3" href="{% url 'location' location.id %}">{{location}}</a>
+            {% endfor %}
+        </div>
+      </div>
+
       <!-- Adding a search form -->
   
       <div class="col-sm-4 col-md-4 navbar-right">
