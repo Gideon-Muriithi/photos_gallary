@@ -2,21 +2,21 @@
 
 {% block content %}
 {{block.super}}
-<div class="container-fluid" class="mb-4">
-    <div class="ml-5">
+<div class="container-fluid" class="mb-2">
+    <div class="ml-2">
         {% if category %}
-        ` <h2>Found {{ images|length }} of searched term {{ category }}.</h2>
+          <h2 style="font-weight: bolder">Found {{ images|length }} image(s) of searched term {{ category }}.</h2>
         {% else %}
-        <h2> {{ message }}</h2>
+        <h2 style="font-weight: bolder"> {{ message }}</h2>
         {% endif %}
 
-        <div class="row">
+        <div class="row"> 
             {% if images %}
             {% for image in images %}
             <div class="col-md-12">
                 <img src="{{ image.image.url }}" alt="" class="img-fluid" data-toggle="modal"
                     data-target="#{{ image.id }}">
-                <p>{{ image.image_description|truncatewords:6 }}</p>
+                <p class="mt-1">{{ image.image_description|truncatewords:20 }}</p>
                 <p>
                     {% for category in image.categories.all %}
                     <span class="badge badge-primary" style="font-size:1em;">{{ category }}</span>
