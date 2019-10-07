@@ -9,7 +9,7 @@
         <div class="col-md-4 mt-2">
             <img src="{{ image.image.url }}" alt="Image" class="img-fluid" data-toggle="modal"
                 data-target="#{{image.id}}">
-            <p>{{image.description}}</p>
+            <p>{{image.image_description}}</p>
             <p>
                 {% for category in image.categories.all %}
                 <span class="badge badge-primary" style="font-size:1em;">{{ category }}</span>
@@ -17,7 +17,7 @@
             </p>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal --> 
         <div id="{{ image.id }}" class="modal fade" role="dialog">
             <div class="modal-dialog image">
                 <div class="modal-content" style="background-color:  rgb(47, 97, 117)">
